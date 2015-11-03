@@ -1,0 +1,38 @@
+{
+   "id":112568,
+   "profileVersion":2,
+   "approved":"no",
+   "title":"Paw tasticaaa",
+   "description":"I love dogsI love dogsI love dogs I ",
+   "over18":"0",
+   "contact":{
+      "name":{
+         "first":"Seth1bab",
+         "last":"Broomerb",
+         "fullName":null
+      },
+      "location":{
+         "address1":"asdfadsf",
+         "address2":"",
+         "city":"Los Angeles",
+         "country":"US",
+         "state":"CA",
+         "zipcode":"90066",
+         "neighborhood":""
+      },
+      "alternatePhone":""
+   },
+
+   "boarding":{
+      "rate":35.0,
+      "offered":true,
+      "attributes":{
+         "unsupervisedPetArea":"3",
+         "maxDogsAllowed":"2",
+         "petNightSleepArea":"2",
+         "maxWalksPerDay":"3",
+         "supervisionLevel":"3",
+         "maxPottyBreaksPerDay":"3"
+      }
+   }
+}

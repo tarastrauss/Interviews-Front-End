@@ -1,0 +1,15 @@
+label {
+    display: block;
+}
+
+.col-1 {
+    width: 400px;
+    border:1px solid red;
+    float:left;
+}
+
+.col-2 {
+    width: 400px;
+    border:1px solid blue;
+    float:left;
+}

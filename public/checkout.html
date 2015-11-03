@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/public/css/checkout.css"/>
+</head>
+<body >
+
+<div class="content">
+    <div class="col-1" >
+        <h2>Contact Info</h2>
+
+        <div>
+            <label>First Name</label>
+            <input type="text" />
+        </div>
+
+        <div>
+            <label>Last Name</label>
+            <input type="text" />
+        </div>
+
+        <div>
+            <label>Phone</label>
+            <input type="number" />
+        </div>
+
+        <h2>My Pets</h2>
+
+        <div>{PET LIST GOES HERE}</div>
+
+        <div>
+            <button id="add-pet" >Add Pet</button>
+        </div>
+
+        <div>
+            <button id="submit-form">Submit Form</button>
+        </div>
+
+    </div>
+
+    <div class="col-2" >
+        <h2>Invoice</h2>
+        <div>
+            <div><span>{FIRST NAME}</span></div>
+            <div>
+                <span>{CITY}</span>
+                ,<span>{STATE}</span>
+            </div>
+        </div>
+        <div><b>Service:</b><span>{SERVICE}</span></div>
+        <div><b># of Nights:</b><span>{NIGHTS}</span></div>
+        <div><b># of Pets:</b><span>{PETS}</span></div>
+        <div><b>Total Price:</b><span>{TOTALFEE}</span></div>
+    </div>
+
+
+
+
+</div>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+
+<script src="/bower_components/react/react.js"></script>
+
+
+<!-- scripts goes here -->
+<script src="/public/js/checkout/controllers/test.js"></script>
+<script src="/public/js/checkout/models/test.js"></script>
+<script src="/public/js/checkout/views/test.js"></script>
+<script src="/public/js/checkout/main.js"></script>
+
+</body>
+</html>
