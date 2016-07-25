@@ -11,11 +11,11 @@
         "id": 1,
         "name": "fido",
         "type": "dog"
-      }      
+      }
     },
     {
       "title": " yippie skippy doggie  day-daycare",
-      "desciption": "description description",
+      "description": "description description",
       "user": {
         "first": "george",
         "last": "lucus"
@@ -28,7 +28,7 @@
     },
     {
       "title": "my doggie's play pen",
-      "desciption": "memememem mememmememeem memememe mememememememe mememem",
+      "description": "memememem mememmememeem memememe mememememememe mememem",
       "user": {
         "first": "luke",
         "last": "skywalker"
