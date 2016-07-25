@@ -5,20 +5,14 @@ import InlineCss from "react-inline-css";
 
 const dest = document.getElementById('content');
 
+// Parent compenent for filter options and search results
 var DisplayBox = React.createClass({
-  // Parent compenent for filter options and search results
   getInitialState: function() {
     return {url: "/static/search.json"};
   },
-  handleBoardingCheck: function(e) {
-    if (e.target.checked) {
-      this.setState({url: "/static/search.json?service=boarding"});
-    }
-  },
-  handleSittingCheck: function(e) {
-    if (e.target.checked) {
-      this.setState({url: "/static/search.json?service=sitting"});
-    }
+  handleServiceRadioBtn: function(e) {
+    // Changes url for ResultList when radio button is clicked
+    this.setState({url: "/static/search.json?service=" + e.target.value});
   },
   render: function() {
     return (
@@ -29,7 +23,10 @@ var DisplayBox = React.createClass({
             box-shadow: 5px 5px 5px grey;
           }
           & hr {
-            width: 90%;
+            width: 95%;
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
           }
           & .filterForm {
             height: 70px;
@@ -54,13 +51,14 @@ var DisplayBox = React.createClass({
           }
       `}>
         <div className="displayBox">
-          <form className="filterForm" >
+          <form className="filterForm" onChange={this.handleServiceRadioBtn}>
             <hr></hr>
             <span className="filterDescription"> Looking for: </span>
-            <input type="radio" name="service" onChange={this.handleBoardingCheck} />
-            <label className="optionLabel"> Boarding <div className="smallerLabel"> at Hosts home </div>
+            <input type="radio" name="service" value="boarding" />
+            <label className="optionLabel">
+              Boarding <div className="smallerLabel"> at Hosts home </div>
             </label>
-            <input type="radio" name="service" onChange={this.handleSittingCheck} />
+            <input type="radio" name="service" value="sitting" />
             <label className="optionLabel">
               Sitting <div className="smallerLabel"> at my home </div>
             </label>
@@ -73,17 +71,15 @@ var DisplayBox = React.createClass({
   }
 });
 
+// Parent component to load and render the list of search results
 var ResultList = React.createClass({
-  // Parent compenent to load and render the list of search results
-  loadResults: function() {
+  loadResults: function(url) {
     // AJAX request to API to load data
-    console.log(this.props.url);
     $.ajax({
-      url: this.props.url,
+      url: url,
       dataType: 'json',
       cache: false,
       success: function(data) {
-        console.log(data);
         this.setState({data: data.search});
       }.bind(this),
       error: function(xhr, status, err) {
@@ -94,17 +90,15 @@ var ResultList = React.createClass({
   getInitialState: function() {
     return {data: []};
   },
-  componentWillMount: function() {
+  componentDidMount: function() {
     // Load unfiltered data on initial pageload
-    this.loadResults();
+    this.loadResults(this.props.url);
   },
-  shouldComponentUpdate: function (nextProps, nextState) {
-    // Update component when URL changes
-    return (this.props.url !== nextProps.url);
-  },
-  componentDidUpdate: function() {
-    // Load new results when component updates
-    this.loadResults();
+  componentWillReceiveProps: function(nextProps) {
+    // Load filtered data when Url is changed
+    if (nextProps.url !== this.props.url) {
+      this.loadResults(nextProps.url);
+    }
   },
   render: function () {
       var resultNodes = this.state.data.map(function(result) {
@@ -114,21 +108,15 @@ var ResultList = React.createClass({
         );
       });
       return (
-        <InlineCss stylesheet={`
-          & .resultList {
-            margin-top: 20px;
-          }
-        `}>
           <div className="resultList">
             {resultNodes}
           </div>
-        </InlineCss>
     );
   }
 });
 
+// Compenent for individual search results
 var Result = React.createClass({
-    // Compenent for individual search results
     formatUserName: function(first, last) {
       // Formats username to display the first name with a capital first
       // letter and only the first letter of the last name.
@@ -136,13 +124,16 @@ var Result = React.createClass({
        + last[0].toUpperCase() + '.';
     },
     truncateDescription: function(description) {
-      if (description.length < 48) {
+      // Truncates descriptions longer then 48 characters. If 48th character is
+      // in the middle of a word, the entire word is left out.
+      if (description.length <= 48) {
         return description;
       } else if (description[48] != ' ') {
-        var shortString = description.substring(0, 47);
+        var shortString = description.substring(0, 48);
         return shortString.substring(0, shortString.lastIndexOf(' ')) + '...';
       } else {
-        return (description.substring(0, 47) + '...');
+        console.log('hey');
+        return description.substring(0, 48) + '...';
       }
     },
     render: function() {
@@ -151,7 +142,7 @@ var Result = React.createClass({
       return (
         <InlineCss stylesheet={`
           & .result {
-            margin-top: 20px;
+            margin-top: 25px;
             font-size: 14px;
           }
           & .resultTitle {
@@ -165,15 +156,16 @@ var Result = React.createClass({
           }
           & .resultDescription {
             color: #4A4E4E;
-            margin-top: 2px;
+            margin-top: 5px;
           }
           & .resultPetName {
             color: #4A4E4E;
             font-style: italic;
             margin-left: 5px;
             background-color: #DCDEDE;
-            padding: 2px 4px 2px 4px;
+            padding: 2px 5px 2px 5px;
             border-radius: 5px;
+            box-shadow: 2px 2px 2px grey;
           }
         `}>
           <div className="result">
