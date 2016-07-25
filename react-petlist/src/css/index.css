@@ -2,6 +2,12 @@
 :root {
   --slate-blue: #33ABB1;
   --dark-grey: #4A4E4E;
+  --light-grey: #CBD1D1;
+}
+
+/* Sets Font for Whole Page */
+.displayBox {
+  font-family: helvetica;
 }
 
 /* Styling for Header */
@@ -39,7 +45,7 @@ hr {
 }
 .filterForm {
   height: 70px;
-  background-color: #CBD1D1;
+  background-color: var(--light-grey);
   padding: 2px 0 2px 0;
 }
 .optionLabel {
@@ -77,7 +83,7 @@ input {
 .resultPetName {
   font-style: italic;
   margin-left: 5px;
-  background-color: #DCDEDE;
+  background-color: var(--light-grey);
   padding: 2px 5px 2px 5px;
   border-radius: 5px;
   box-shadow: 2px 2px 2px grey;
