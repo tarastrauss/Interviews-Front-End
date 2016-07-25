@@ -63,7 +63,9 @@ webpackConfig.plugins = [
 // ------------------------------------
 webpackConfig.module.loaders = [
   { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel'] },
-  { test: /\.json$/, loader: 'json' }
+  { test: /\.json$/, loader: 'json' },
+  { test: /\.css$/, loader: "style-loader!css-loader" },
+  { test: /\.png$/, loader: "url-loader?limit=100000" }
 ];
 
 export default webpackConfig;

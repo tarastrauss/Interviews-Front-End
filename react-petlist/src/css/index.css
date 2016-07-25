@@ -1,0 +1,85 @@
+/* Color Variables */
+:root {
+  --slate-blue: #33ABB1;
+  --dark-grey: #4A4E4E;
+}
+
+/* Styling for Header */
+.headerBox {
+  text-align: center;
+  margin-top: 20px;
+}
+.header {
+  color: var(--slate-blue);
+  text-align: center;
+  font-size: 26px;
+  vertical-align: top;
+  height: 70px;
+  display: inline-block;
+  margin: 20px 0 0 20px;
+}
+.logo {
+  background: url('../assets/logo.png');
+  height: 70px;
+  width: 100px;
+  display: inline-block;
+}
+
+/* Styling for Filter */
+.filterForm {
+  color: #4A4E4E;
+  text-align: center;
+  box-shadow: 5px 5px 5px grey;
+}
+hr {
+  width: 95%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--slate-blue), rgba(0, 0, 0, 0));
+}
+.filterForm {
+  height: 70px;
+  background-color: #CBD1D1;
+  padding: 2px 0 2px 0;
+}
+.optionLabel {
+  display: inline-block;
+  text-align: left;
+}
+.smallerLabel {
+  font-size: 12px;
+  color: #778786;
+}
+input {
+  margin: 0 8px 0 15px;
+  vertical-align: top;
+}
+.filterDescription {
+  vertical-align: top;
+  margin-right: 20px;
+}
+
+/* Styling for Results */
+.result {
+  margin-top: 25px;
+  font-size: 14px;
+  color: var(--dark-grey);
+}
+.resultTitle {
+  color: var(--slate-blue);
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.resultDescription {
+  margin-top: 5px;
+}
+.resultPetName {
+  font-style: italic;
+  margin-left: 5px;
+  background-color: #DCDEDE;
+  padding: 2px 5px 2px 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px grey;
+}
+
