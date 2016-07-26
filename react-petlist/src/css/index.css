@@ -66,10 +66,13 @@ input {
 }
 
 /* Styling for Results */
-.result {
-  margin-top: 25px;
+.resultList {
+  margin-top: 30px;
   font-size: 14px;
   color: var(--dark-grey);
+}
+.result {
+  margin-top: 25px;
 }
 .resultTitle {
   color: var(--slate-blue);
@@ -87,5 +90,8 @@ input {
   padding: 2px 5px 2px 5px;
   border-radius: 5px;
   box-shadow: 2px 2px 2px grey;
+}
+.url {
+  font-style: italic;
 }
 

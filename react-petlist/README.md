@@ -1,3 +1,20 @@
+## Tara's Finished Assignment
+
+Hi dogvacay! Here is the repo for my frontend react interview assignment. I 
+noticed that you had two typoes in the search.json so I fixed them - but it looks
+like you're aware of the mistakes since someone submitted a pull request a few 
+days ago on your repo.  
+
+I also wasn't completely sure what you wanted for the Url field 
+(without spaces and only with alphanumberic characters). I took a guess that you
+wanted the endpoint reported when the user searches it, so that's what I did.
+
+I also installed style-loader so I could put the CSS in a different module. 
+
+Let me know if you have any questions! Here's a picture of the finished product:
+![](dogvacay_final_screenshot.png)
+
+
 # PetList Test
 > These are a few modules of the 'Search Page' on our site.  
 To view how the search page acts go to https://dogvacay.com/browse
